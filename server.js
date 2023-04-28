@@ -5,8 +5,19 @@ let express = require('express')
 // Import the routes file for the api calls
 let api_routes = require('./routes/api')
 
+// establish the route to the dist directory
+let path = require('path')
+
 // spawn the app object which runs the express package
 let app = express()
+
+// create the dir path for the vue client
+let vueClientPath = path.join(__dirname, 'student-sign-in-client', 'dist')
+
+// use the path for vueapp
+app.use(express.static(vueClientPath))
+
+
 
 // After routes configuration*
 // send requests with json bodies to the api router
