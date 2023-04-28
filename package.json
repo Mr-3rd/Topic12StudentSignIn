@@ -1,0 +1,18 @@
+{
+  "name": "student-sign-in-api",
+  "author": "Justin 3rd",
+  "version": "1.0.0",
+  "description": "Student Sign In application for azure deployment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sequelize": "^6.31.0",
+    "tedious": "^16.0.0"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.1.6"
+  }
+}
