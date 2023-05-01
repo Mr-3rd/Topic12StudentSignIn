@@ -1,0 +1,158 @@
+The deployment works fine when using the development Database, but as soon as I attempt to configure  the Azure Database
+, I get the following errors:
+
+2023-05-01T14:56:48  Welcome, you are now connected to log-streaming service.
+
+Starting Log Tail -n 10 of existing logs ----
+
+/home/LogFiles/__lastCheckTime.txt  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/__lastCheckTime.txt)05/01/2023 14:54:32
+
+/home/LogFiles/kudu/trace/2b8877bdec84-639281f8-ed0a-4496-836f-70fad3d6f82d.txt  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/kudu/trace/2b8877bdec84-639281f8-ed0a-4496-836f-70fad3d6f82d.txt)
+2023-05-01T14:56:47  Startup Request, url: /api/logstream/, method: GET, type: request, pid: 122,1,3, SCM_DO_BUILD_DURING_DEPLOYMENT: True, ScmType: None
+
+/home/LogFiles/kudu/trace/5b1ff1ebc83e-5e984dd6-8f26-47d8-847a-1aea639800d5.txt  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/kudu/trace/5b1ff1ebc83e-5e984dd6-8f26-47d8-847a-1aea639800d5.txt)at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)at Kudu.Services.Web.Tracing.TraceMiddleware.Invoke(HttpContext context) in /tmp/KuduLite/Kudu.Services.Web/Tracing/TraceMiddleware.cs:line 93
+2023-05-01T14:12:51          Outgoing response, type: response, statusCode: 400, statusText: BadRequest
+
+/home/LogFiles/kudu/trace/7e3b5b94a4eb-3061dcc0-e2a3-4fd0-a2db-4436347b3b72.txt  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/kudu/trace/7e3b5b94a4eb-3061dcc0-e2a3-4fd0-a2db-4436347b3b72.txt)at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)at Kudu.Services.Web.Tracing.TraceMiddleware.Invoke(HttpContext context) in /tmp/KuduLite/Kudu.Services.Web/Tracing/TraceMiddleware.cs:line 93
+2023-04-30T21:22:35          Outgoing response, type: response, statusCode: 400, statusText: BadRequest
+
+/home/LogFiles/kudu/trace/7fe75a6ec1e5-0e506d52-c3d4-424c-96be-35930c8ad733.txt  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/kudu/trace/7fe75a6ec1e5-0e506d52-c3d4-424c-96be-35930c8ad733.txt)
+2023-04-28T22:21:42  Startup Request, url: /favicon.ico, method: GET, type: request, pid: 120,1,15, SCM_DO_BUILD_DURING_DEPLOYMENT: True, ScmType: None
+
+/home/LogFiles/kudu/trace/7fe75a6ec1e5-eb8d610d-86fc-4f82-b00a-a6ea4156ad2f.txt  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/kudu/trace/7fe75a6ec1e5-eb8d610d-86fc-4f82-b00a-a6ea4156ad2f.txt)at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)at Kudu.Services.Web.Tracing.TraceMiddleware.Invoke(HttpContext context) in /tmp/KuduLite/Kudu.Services.Web/Tracing/TraceMiddleware.cs:line 93
+2023-04-28T22:21:43          Outgoing response, type: response, statusCode: 400, statusText: BadRequest
+
+/home/LogFiles/kudu/trace/944b904fe1ec-80a65a13-f9e5-4c31-a549-dab8855ee210.txt  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/kudu/trace/944b904fe1ec-80a65a13-f9e5-4c31-a549-dab8855ee210.txt)
+2023-04-30T22:01:31  Startup Request, url: /api/zipdeploy?isAsync=true, method: POST, type: request, pid: 115,1,68, ScmType: None, SCM_DO_BUILD_DURING_DEPLOYMENT: True
+
+/home/LogFiles/kudu/trace/b22a752d2b73-e1f85e4b-a059-4899-8ccb-9e0b65eea7af.txt  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/kudu/trace/b22a752d2b73-e1f85e4b-a059-4899-8ccb-9e0b65eea7af.txt)
+2023-04-29T10:06:18  Startup Request, url: /api/zipdeploy?isAsync=true, method: POST, type: request, pid: 104,1,5, SCM_DO_BUILD_DURING_DEPLOYMENT: True, ScmType: None
+
+/home/LogFiles/kudu/trace/ffa531b453d9-ff0fb3c0-64be-434c-b3f1-255ff773321c.txt  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/kudu/trace/ffa531b453d9-ff0fb3c0-64be-434c-b3f1-255ff773321c.txt)at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)at Kudu.Services.Web.Tracing.TraceMiddleware.Invoke(HttpContext context) in /tmp/KuduLite/Kudu.Services.Web/Tracing/TraceMiddleware.cs:line 93
+2023-04-28T20:56:06      Outgoing response, type: response, statusCode: 400, statusText: BadRequest
+
+/home/LogFiles/2023_04_28_10-30-0-8_default_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_04_28_10-30-0-8_default_docker.log)
+2023-04-28T22:57:27.448678466Z npm ERR! student-sign-in-api@1.0.0 start: `node server.js`
+2023-04-28T22:57:27.448694155Z npm ERR! Exit status 1
+2023-04-28T22:57:27.448700167Z npm ERR!
+2023-04-28T22:57:27.448704715Z npm ERR! Failed at the student-sign-in-api@1.0.0 start script.
+2023-04-28T22:57:27.448708983Z npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2023-04-28T22:57:27.500127589Z npm timing npm Completed in 947ms
+2023-04-28T22:57:27.500472928Z
+2023-04-28T22:57:27.500484610Z npm ERR! A complete log of this run can be found in:
+2023-04-28T22:57:27.500490131Z npm ERR!     /root/.npm/_logs/2023-04-28T22_57_27_449Z-debug.log
+
+
+/home/LogFiles/2023_04_28_10-30-0-8_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_04_28_10-30-0-8_docker.log)
+2023-04-28T22:32:21.848Z ERROR - Container student-sign-in-webapp-3rd_0_bbe2b580 for site student-sign-in-webapp-3rd has exited, failing site start
+2023-04-28T22:32:21.866Z ERROR - Container student-sign-in-webapp-3rd_0_bbe2b580 didn't respond to HTTP pings on port: 8080, failing site start. See container logs for debugging.
+2023-04-28T22:32:21.869Z INFO  - Stopping site student-sign-in-webapp-3rd because it failed during startup.
+2023-04-28T22:57:22.294Z INFO  - Starting container for site
+2023-04-28T22:57:22.295Z INFO  - docker run -d --expose=8080 --name student-sign-in-webapp-3rd_0_be05629f -e WEBSITE_SITE_NAME=student-sign-in-webapp-3rd -e WEBSITE_AUTH_ENABLED=False -e WEBSITE_ROLE_INSTANCE_ID=0 -e WEBSITE_HOSTNAME=student-sign-in-webapp-3rd.azurewebsites.net -e WEBSITE_INSTANCE_ID=1819ec9fe91007b626835b89ed3c8eb466f17083edc542975cf8898701899343 -e HTTP_LOGGING_ENABLED=1 -e WEBSITE_USE_DIAGNOSTIC_SERVER=True appsvc/node:14-lts_20230228.2.tuxprod
+2023-04-28T22:57:23.678Z INFO  - Initiating warmup request to container student-sign-in-webapp-3rd_0_be05629f for site student-sign-in-webapp-3rd
+2023-04-28T22:57:28.409Z ERROR - Container student-sign-in-webapp-3rd_0_be05629f for site student-sign-in-webapp-3rd has exited, failing site start
+2023-04-28T22:57:28.431Z ERROR - Container student-sign-in-webapp-3rd_0_be05629f didn't respond to HTTP pings on port: 8080, failing site start. See container logs for debugging.
+2023-04-28T22:57:28.503Z INFO  - Stopping site student-sign-in-webapp-3rd because it failed during startup.
+
+/home/LogFiles/2023_04_28_lw0sdlwk0000B8_default_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_04_28_lw0sdlwk0000B8_default_docker.log)
+2023-04-28T22:15:03.354441882Z npm ERR! student-sign-in-api@1.0.0 start: `node server.js`
+2023-04-28T22:15:03.354448782Z npm ERR! Exit status 1
+2023-04-28T22:15:03.354453982Z npm ERR!
+2023-04-28T22:15:03.354458882Z npm ERR! Failed at the student-sign-in-api@1.0.0 start script.
+2023-04-28T22:15:03.354463882Z npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2023-04-28T22:15:03.626589523Z npm timing npm Completed in 5950ms
+2023-04-28T22:15:03.626632724Z
+2023-04-28T22:15:03.626639724Z npm ERR! A complete log of this run can be found in:
+2023-04-28T22:15:03.626645224Z npm ERR!     /root/.npm/_logs/2023-04-28T22_15_03_332Z-debug.log
+
+
+
+/home/LogFiles/2023_04_28_lw0sdlwk0000B8_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_04_28_lw0sdlwk0000B8_docker.log)
+2023-04-28T22:12:22.428Z INFO  - Waiting for response to warmup request for container student-sign-in-webapp-3rd_2_3fa11a33. Elapsed time = 22.3382204 sec
+2023-04-28T22:12:25.911Z INFO  - Container student-sign-in-webapp-3rd_2_3fa11a33 for site student-sign-in-webapp-3rd initialized successfully and is ready to serve requests.
+2023-04-28T22:14:32.553Z INFO  - Recycling container because of AppSettingsChange and isMainSite = True
+2023-04-28T22:14:32.905Z INFO  - Starting container for site
+2023-04-28T22:14:32.907Z INFO  - docker run -d --expose=8080 --name student-sign-in-webapp-3rd_3_68c8b1f7 -e WEBSITE_SITE_NAME=student-sign-in-webapp-3rd -e WEBSITE_AUTH_ENABLED=False -e WEBSITE_ROLE_INSTANCE_ID=0 -e WEBSITE_HOSTNAME=student-sign-in-webapp-3rd.azurewebsites.net -e WEBSITE_INSTANCE_ID=37935eb6fafb49a468fb68d92286356e22c8bc7a579b471826676d3dcd718252 -e HTTP_LOGGING_ENABLED=1 -e WEBSITE_USE_DIAGNOSTIC_SERVER=True appsvc/node:14-lts_20230228.2.tuxprod
+2023-04-28T22:14:39.071Z INFO  - Initiating warmup request to container student-sign-in-webapp-3rd_3_68c8b1f7 for site student-sign-in-webapp-3rd
+2023-04-28T22:14:55.954Z INFO  - Waiting for response to warmup request for container student-sign-in-webapp-3rd_3_68c8b1f7. Elapsed time = 16.8824355 sec
+2023-04-28T22:15:04.249Z ERROR - Container student-sign-in-webapp-3rd_3_68c8b1f7 for site student-sign-in-webapp-3rd has exited, failing site start
+2023-04-28T22:15:04.520Z ERROR - Container student-sign-in-webapp-3rd_3_68c8b1f7 didn't respond to HTTP pings on port: 8080, failing site start. See container logs for debugging.
+
+/home/LogFiles/2023_04_29_10-30-0-51_default_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_04_29_10-30-0-51_default_docker.log)
+2023-04-29T10:29:30.622182884Z npm ERR! student-sign-in-api@1.0.0 start: `node server.js`
+2023-04-29T10:29:30.622928399Z npm ERR! Exit status 1
+2023-04-29T10:29:30.623635151Z npm ERR!
+2023-04-29T10:29:30.624255841Z npm ERR! Failed at the student-sign-in-api@1.0.0 start script.
+2023-04-29T10:29:30.624932686Z npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2023-04-29T10:29:30.689032902Z npm timing npm Completed in 1868ms
+2023-04-29T10:29:30.689059022Z
+2023-04-29T10:29:30.689511555Z npm ERR! A complete log of this run can be found in:
+2023-04-29T10:29:30.689815858Z npm ERR!     /root/.npm/_logs/2023-04-29T10_29_30_625Z-debug.log
+
+
+/home/LogFiles/2023_04_29_10-30-0-51_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_04_29_10-30-0-51_docker.log)
+2023-04-29T10:06:58.325Z ERROR - Container student-sign-in-webapp-3rd_0_785917ec for site student-sign-in-webapp-3rd has exited, failing site start
+2023-04-29T10:06:58.389Z ERROR - Container student-sign-in-webapp-3rd_0_785917ec didn't respond to HTTP pings on port: 8080, failing site start. See container logs for debugging.
+2023-04-29T10:06:58.396Z INFO  - Stopping site student-sign-in-webapp-3rd because it failed during startup.
+2023-04-29T10:29:23.608Z INFO  - Starting container for site
+2023-04-29T10:29:23.609Z INFO  - docker run -d --expose=8080 --name student-sign-in-webapp-3rd_0_1eebbb39 -e WEBSITE_SITE_NAME=student-sign-in-webapp-3rd -e WEBSITE_AUTH_ENABLED=False -e WEBSITE_ROLE_INSTANCE_ID=0 -e WEBSITE_HOSTNAME=student-sign-in-webapp-3rd.azurewebsites.net -e WEBSITE_INSTANCE_ID=cc8f72f932c68de6d9cb9fbf1ce31bb68571e50921f809af7a07d0bceb35a578 -e HTTP_LOGGING_ENABLED=1 -e WEBSITE_USE_DIAGNOSTIC_SERVER=True appsvc/node:14-lts_20230228.2.tuxprod
+2023-04-29T10:29:25.654Z INFO  - Initiating warmup request to container student-sign-in-webapp-3rd_0_1eebbb39 for site student-sign-in-webapp-3rd
+2023-04-29T10:29:31.902Z ERROR - Container student-sign-in-webapp-3rd_0_1eebbb39 for site student-sign-in-webapp-3rd has exited, failing site start
+2023-04-29T10:29:31.933Z ERROR - Container student-sign-in-webapp-3rd_0_1eebbb39 didn't respond to HTTP pings on port: 8080, failing site start. See container logs for debugging.
+2023-04-29T10:29:32.019Z INFO  - Stopping site student-sign-in-webapp-3rd because it failed during startup.
+
+/home/LogFiles/2023_04_30_10-30-0-106_default_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_04_30_10-30-0-106_default_docker.log)
+2023-04-30T21:32:30.617579152Z npm ERR! student-sign-in-api@1.0.0 start: `node server.js`
+2023-04-30T21:32:30.617594020Z npm ERR! Exit status 1
+2023-04-30T21:32:30.617599441Z npm ERR!
+2023-04-30T21:32:30.617603398Z npm ERR! Failed at the student-sign-in-api@1.0.0 start script.
+2023-04-30T21:32:30.617664382Z npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2023-04-30T21:32:30.634219012Z npm timing npm Completed in 829ms
+2023-04-30T21:32:30.634567053Z
+2023-04-30T21:32:30.634580067Z npm ERR! A complete log of this run can be found in:
+2023-04-30T21:32:30.634585637Z npm ERR!     /root/.npm/_logs/2023-04-30T21_32_30_618Z-debug.log
+
+
+/home/LogFiles/2023_04_30_10-30-0-106_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_04_30_10-30-0-106_docker.log)
+2023-04-30T21:29:50.817Z ERROR - Container student-sign-in-webapp-3rd_0_76073866 for site student-sign-in-webapp-3rd has exited, failing site start
+2023-04-30T21:29:50.833Z ERROR - Container student-sign-in-webapp-3rd_0_76073866 didn't respond to HTTP pings on port: 8080, failing site start. See container logs for debugging.
+2023-04-30T21:29:50.846Z INFO  - Stopping site student-sign-in-webapp-3rd because it failed during startup.
+2023-04-30T21:32:24.537Z INFO  - Starting container for site
+2023-04-30T21:32:24.538Z INFO  - docker run -d --expose=8080 --name student-sign-in-webapp-3rd_0_0c892775 -e WEBSITE_SITE_NAME=student-sign-in-webapp-3rd -e WEBSITE_AUTH_ENABLED=False -e WEBSITE_ROLE_INSTANCE_ID=0 -e WEBSITE_HOSTNAME=student-sign-in-webapp-3rd.azurewebsites.net -e WEBSITE_INSTANCE_ID=9e89c1d60cfdd954c8867d82790648aafd773e27a2d4103f500276884301a0da -e HTTP_LOGGING_ENABLED=1 -e WEBSITE_USE_DIAGNOSTIC_SERVER=True appsvc/node:14-lts_20230228.2.tuxprod
+2023-04-30T21:32:26.110Z INFO  - Initiating warmup request to container student-sign-in-webapp-3rd_0_0c892775 for site student-sign-in-webapp-3rd
+2023-04-30T21:32:31.322Z ERROR - Container student-sign-in-webapp-3rd_0_0c892775 for site student-sign-in-webapp-3rd has exited, failing site start
+2023-04-30T21:32:31.369Z ERROR - Container student-sign-in-webapp-3rd_0_0c892775 didn't respond to HTTP pings on port: 8080, failing site start. See container logs for debugging.
+2023-04-30T21:32:31.373Z INFO  - Stopping site student-sign-in-webapp-3rd because it failed during startup.
+
+/home/LogFiles/2023_05_01_10-30-0-8_default_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_05_01_10-30-0-8_default_docker.log)
+2023-05-01T14:54:36.602779208Z npm ERR! student-sign-in-api@1.0.0 start: `node server.js`
+2023-05-01T14:54:36.602794456Z npm ERR! Exit status 1
+2023-05-01T14:54:36.602799766Z npm ERR!
+2023-05-01T14:54:36.602803673Z npm ERR! Failed at the student-sign-in-api@1.0.0 start script.
+2023-05-01T14:54:36.602808112Z npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2023-05-01T14:54:36.620803673Z npm timing npm Completed in 1235ms
+2023-05-01T14:54:36.621216046Z
+2023-05-01T14:54:36.621228569Z npm ERR! A complete log of this run can be found in:
+2023-05-01T14:54:36.621233438Z npm ERR!     /root/.npm/_logs/2023-05-01T14_54_36_603Z-debug.log
+
+
+/home/LogFiles/2023_05_01_10-30-0-8_docker.log  (https://student-sign-in-webapp-3rd.scm.azurewebsites.net/api/vfs/LogFiles/2023_05_01_10-30-0-8_docker.log)
+2023-05-01T14:54:26.798Z ERROR - Container student-sign-in-webapp-3rd_0_12b81e30 for site student-sign-in-webapp-3rd has exited, failing site start
+2023-05-01T14:54:26.817Z ERROR - Container student-sign-in-webapp-3rd_0_12b81e30 didn't respond to HTTP pings on port: 8080, failing site start. See container logs for debugging.
+2023-05-01T14:54:26.823Z INFO  - Stopping site student-sign-in-webapp-3rd because it failed during startup.
+2023-05-01T14:54:32.166Z INFO  - Starting container for site
+2023-05-01T14:54:32.168Z INFO  - docker run -d --expose=8080 --name student-sign-in-webapp-3rd_0_88e2332e -e WEBSITE_SITE_NAME=student-sign-in-webapp-3rd -e WEBSITE_AUTH_ENABLED=False -e WEBSITE_ROLE_INSTANCE_ID=0 -e WEBSITE_HOSTNAME=student-sign-in-webapp-3rd.azurewebsites.net -e WEBSITE_INSTANCE_ID=1819ec9fe91007b626835b89ed3c8eb466f17083edc542975cf8898701899343 -e HTTP_LOGGING_ENABLED=1 -e WEBSITE_USE_DIAGNOSTIC_SERVER=True appsvc/node:14-lts_20230228.2.tuxprod
+2023-05-01T14:54:33.147Z INFO  - Initiating warmup request to container student-sign-in-webapp-3rd_0_88e2332e for site student-sign-in-webapp-3rd
+2023-05-01T14:54:37.573Z ERROR - Container student-sign-in-webapp-3rd_0_88e2332e for site student-sign-in-webapp-3rd has exited, failing site start
+2023-05-01T14:54:37.594Z ERROR - Container student-sign-in-webapp-3rd_0_88e2332e didn't respond to HTTP pings on port: 8080, failing site start. See container logs for debugging.
+2023-05-01T14:54:37.598Z INFO  - Stopping site student-sign-in-webapp-3rd because it failed during startup.
+
+Ending Log Tail of existing logs ---
+Starting Live Log Stream ---
+2023-05-01T14:57:48  No new trace in the past 1 min(s).
+
+
+
+--> I'm assuming I named something wrong where this thins is looking for _api?? I just have no idea where to begin on
+looking up where it's wrong.
+

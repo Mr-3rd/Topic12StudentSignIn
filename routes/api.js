@@ -14,7 +14,7 @@ let router = express.Router()
 // create the tasks to handle when a get request is made
 router.get('/students', function (req, res, next){
     // use the findAll method to create a promise that returns all the student information
-    Student.findAll({order: [`name`] }).then( students => {
+    Student.findAll({order: [`StarID`] }).then( students => {
         // return all student information as a json object
         return res.json(students)
     }).catch( err => next(err))
